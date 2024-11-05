@@ -1,118 +1,133 @@
-.full-width-header {
-  width: 100%;
-  background-color: #CE2829;
-  color: #FAF7F2; 
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 20px;
+#root {
+  /* Ana kapsayıcı için maksimum genişlik ayarlandı ve ortalandı */
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center; /* İçeriklerin ortalanması */
+}
+
+.header {
+  /* Başlık alanının arka plan ve metin ayarları */
+  background-color: #CE2829; /* Kırmızı arka plan */
+  padding: 1rem; /* İçerik dolgusu */
+  color: white; /* Beyaz metin */
+}
+
+.header h1 {
+  /* Başlık metni stili */
+  margin: 0; /* Varsayılan boşluk kaldırıldı */
+  font-size: 2rem; /* Yazı boyutu */
+}
+
+.header nav {
+  /* Navigasyonun üst boşluğu */
+  margin-top: 0.5rem;
+}
+
+nav small {
+  /* Navigasyon metni için stil */
+  color: white; /* Beyaz renk */
+  opacity: 0.8; /* Opaklık ile şeffaflık efekti */
 }
 
 .card {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 1.5em;
-  border: 1px solid #5F5F5F;
-  border-radius: 8px;
-  background-color: #FAF7F2; 
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  /* Kart alanı için stil */
+  padding: 2em;
+  border-radius: 8px; 
+  margin-bottom: 20px; 
+  background-color: white; 
+}
+
+.options-row {
+  /* Seçeneklerin düzenlenmesi */
+  display: flex;
+  justify-content: space-between; 
+  gap: 20px; 
+}
+
+.option-section {
+  /* Seçenek bölümü genel ayarları */
+  flex: 1; 
   text-align: left;
 }
 
-.form-section {
-  margin-bottom: 20px;
+.option-section.column label {
+  /* Seçeneklerin alt alta sıralanması */
+  display: block;
+  margin-bottom: 10px;
 }
 
-.info-text {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #5F5F5F; 
-}
-
-.checkbox-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #292929; 
-  flex: 1 1 48%;
+select,
+textarea {
+  /* Form öğeleri için genel stil */
+  width: 100%; 
+  padding: 10px; 
+  margin: 10px 0; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
 }
 
 textarea {
-  width: 100%;
-  height: 80px;
-  padding: 0.5em;
-  border: 1px solid #5F5F5F; 
-  border-radius: 4px;
-  resize: vertical;
-  background-color: #FAF7F2; 
-  color: #292929; 
+  min-height: 50px; /* Minimum yükseklik */
 }
 
-.order-summary-container {
-  margin-bottom: 20px;
+.extras-list {
+  /* Ek malzemeler listesinin düzenlenmesi */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* İki sütunlu ızgara */
+  gap: 10px; 
+  text-align: left; 
 }
 
-.order-summary-box {
-  border: 1px solid #5F5F5F; 
-  border-radius: 4px;
-  padding: 1em;
-  background-color: #FAF7F2; 
-}
-
-.order-summary-box h3 {
-  margin: 0;
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #292929; 
-}
-
-.total-price {
-  color: #CE2829; 
-  font-weight: bold;
-}
-
-.quantity-control {
+.order-summary {
+  /* Sipariş özetinin stili */
+  border-top: 1px solid #ddd;
+  padding-top: 10px; 
+  margin-top: 20px; 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 20px;
+  justify-content: space-between; 
 }
 
-.quantity-control button {
-  width: 30px;
-  height: 30px;
-  background-color: #FAF7F2; 
-  border: 1px solid #5F5F5F; 
-  border-radius: 4px;
-  cursor: pointer;
-  color: #292929; 
+.order-controls {
+  /* Sipariş kontrol butonlarının düzenlenmesi */
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px; 
+  margin-top: 20px; 
 }
 
 .order-button {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
+  /* Sipariş butonunun stili */
   background-color: #FDC913; 
-  color: #292929; 
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+  color: #fff; 
+  border: none; 
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  cursor: pointer; 
 }
 
 .order-button:hover {
-  background-color: #CE2829; 
-  color: #FAF7F2; 
+  /* Butonun hover efekti */
+  background-color: #e5b807; 
 }
 
-.read-the-docs {
-  color: #5F5F5F; 
+button {
+  /* Genel buton stili */
+  border: 1px solid #5F5F5F; 
+  background-color: #292929; 
+  padding: 5px 10px; 
+  cursor: pointer; 
+}
+
+button:hover {
+  /* Butonun hover efekti */
+  background-color: #5F5F5F; /* Açık gri arka plan */
+}
+
+input[type="text"] {
+  /* Metin girişi stili */
+  width: 40px; 
+  text-align: center; 
+  border: 1px solid #5F5F5F; /* Açık gri kenarlık */
 }
