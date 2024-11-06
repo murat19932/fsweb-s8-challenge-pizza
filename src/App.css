@@ -1,133 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
 #root {
-  /* Ana kapsayıcı için maksimum genişlik ayarlandı ve ortalandı */
-  max-width: 1280px;
+  max-width: 400px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center; /* İçeriklerin ortalanması */
+  text-align: center;
+  padding-bottom: 20px; /* Alt boşluk */
 }
 
 .header {
-  /* Başlık alanının arka plan ve metin ayarları */
-  background-color: #CE2829; /* Kırmızı arka plan */
-  padding: 1rem; /* İçerik dolgusu */
-  color: white; /* Beyaz metin */
+  background-color: #CE2829;
+  padding: 1rem;
+  color: white;
+  text-align: center;
 }
 
 .header h1 {
-  /* Başlık metni stili */
-  margin: 0; /* Varsayılan boşluk kaldırıldı */
-  font-size: 2rem; /* Yazı boyutu */
+  font-family: 'Roboto Condensed', sans-serif;
+  margin: 0;
+  font-size: 2rem;
 }
 
 .header nav {
-  /* Navigasyonun üst boşluğu */
+  display: flex;
+  justify-content: flex-start;
+  font-size: 20px;
   margin-top: 0.5rem;
+  color: white;
+  
 }
 
-nav small {
-  /* Navigasyon metni için stil */
-  color: white; /* Beyaz renk */
-  opacity: 0.8; /* Opaklık ile şeffaflık efekti */
+.header nav small:first-child {
+  opacity: 0.8;
+}
+
+.header nav small:last-child {
+  font-weight: bold;
+  color: white;
+  margin-left: 5px;
+}
+
+.product-info {
+  text-align: left;
+  padding: 20px;
+}
+
+.product-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.product-price .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.product-price .rating,
+.product-price .reviews {
+  color: #555;
+  font-size: 1rem;
+}
+.siparisnotu{
+  text-align: start;
+}
+.description {
+  color: #555;
+  font-size: 14px;
+  margin-top: 10px;
+  max-width: 550px;
+  text-align: justify;
+  line-height: 1.4;
 }
 
 .card {
-  /* Kart alanı için stil */
-  padding: 2em;
-  border-radius: 8px; 
-  margin-bottom: 20px; 
-  background-color: white; 
+  padding: 1.3em;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: white;
 }
 
 .options-row {
-  /* Seçeneklerin düzenlenmesi */
   display: flex;
-  justify-content: space-between; 
-  gap: 20px; 
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .option-section {
-  /* Seçenek bölümü genel ayarları */
-  flex: 1; 
+  
+  align-items: start;
   text-align: left;
 }
 
 .option-section.column label {
-  /* Seçeneklerin alt alta sıralanması */
-  display: block;
+  display: flex;
+  align-items: start;
   margin-bottom: 10px;
 }
-
+.ekmalzeme{
+  display: flex;
+}
 select,
 textarea {
-  /* Form öğeleri için genel stil */
-  width: 100%; 
-  padding: 10px; 
-  margin: 10px 0; 
-  border: 1px solid #ccc; 
-  border-radius: 4px; 
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 textarea {
-  min-height: 50px; /* Minimum yükseklik */
+  min-height: 50px;
+  min-width: 300px;
+  text-align: center;
 }
 
 .extras-list {
-  /* Ek malzemeler listesinin düzenlenmesi */
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* İki sütunlu ızgara */
-  gap: 10px; 
-  text-align: left; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  text-align: left;
 }
 
 .order-summary {
-  /* Sipariş özetinin stili */
-  border-top: 1px solid #ddd;
-  padding-top: 10px; 
-  margin-top: 20px; 
+  border: 1px solid #ddd;
+  padding: 15px;
+  padding-left: 45px;
+  padding-right: 45px;
+  border-radius: 8px;
+  margin: 20px 0; /* Üst ve alt boşluk */
+  text-align: left;
+}
+
+.order-summary h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.summary-details {
+  margin-top: 10px;
+}
+
+.summary-details p {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.total {
+  color: red;
+  font-weight: bold;
 }
 
 .order-controls {
-  /* Sipariş kontrol butonlarının düzenlenmesi */
   display: flex;
-  align-items: center; 
-  justify-content: center; 
-  gap: 10px; 
-  margin-top: 20px; 
+  padding-left:65px;
+  padding-right: 65px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.control-button {
+  background-color: #FDC913;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .order-button {
-  /* Sipariş butonunun stili */
-  background-color: #FDC913; 
-  color: #fff; 
-  border: none; 
-  padding: 10px 20px; 
-  border-radius: 5px; 
-  cursor: pointer; 
-}
-
-.order-button:hover {
-  /* Butonun hover efekti */
-  background-color: #e5b807; 
-}
-
-button {
-  /* Genel buton stili */
-  border: 1px solid #5F5F5F; 
-  background-color: #292929; 
-  padding: 5px 10px; 
-  cursor: pointer; 
-}
-
-button:hover {
-  /* Butonun hover efekti */
-  background-color: #5F5F5F; /* Açık gri arka plan */
+  background-color: #FDC913;
+  color: #fff;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 input[type="text"] {
-  /* Metin girişi stili */
-  width: 40px; 
-  text-align: center; 
-  border: 1px solid #5F5F5F; /* Açık gri kenarlık */
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.separator {
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
 }

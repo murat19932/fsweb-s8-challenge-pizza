@@ -1,14 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
   const [count, setCount] = useState(1);
-  /*  pizza başına sabit fiyat*/
   const basePrice = 85.50;
-  /* secilen ek malzemeleri tutan state */
-
   const [extras, setExtras] = useState([]);
-  /* eklenebilir malzeme seçenekleri */
+  const [totalPrice, setTotalPrice] = useState(basePrice);
+
   const extraOptions = ['Pepperoni', 'Sosis', 'Kanada Jambonu', 'Tavuk Izgara', 'Soğan', 'Domates', 'Mısır', 'Sucuk', 'Jalapeno', 'Sarmısak', 'Biber', 'Kabak', 'Ananas'];
 
   const handleExtraChange = (option) => {
@@ -18,23 +16,36 @@ function App() {
       setExtras([...extras, option]);
     }
   };
-  /* Toplam fiyat hesaplaması Baz fiyat çarpı sipariş sayısı ve her ekstra malzeme için 5₺ ekleniyor.*/
 
-  const totalPrice = basePrice * count + extras.length * 5; 
+  useEffect(() => {
+    setTotalPrice(basePrice * count + extras.length * 5);
+  }, [count, extras]);
 
   return (
     <div id="root">
       <header className="header">
-        <h1>TEKNOLOJIK YEMEKLER</h1>
+        <h1>Teknolojik Yemekler</h1>
         <nav>
-          <small>Ana Sayfa</small> &gt; <small>Sipariş Oluştur</small>
+          <small>Anasayfa</small> - <small>Sipariş Oluştur</small>
         </nav>
       </header>
+
+      <div className="product-info">
+        <h2>Position Absolute Acı Pizza</h2>
+        <div className="product-price">
+          <p className="price">{basePrice.toFixed(2)}₺</p>
+          <p className="rating">4.9</p>
+          <p className="reviews">(200)</p>
+        </div>
+        <p className="description">
+          Frontend Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzetta denir.
+        </p>
+      </div>
 
       <div className="card">
         <div className="options-row">
           <div className="option-section column">
-            <h4>Boyut Seç</h4>
+            <h4>Boyut Seç <span style={{ color: 'red' }}>*</span></h4>
             <label>
               <input type="radio" name="size" value="Küçük" /> Küçük
             </label>
@@ -47,7 +58,7 @@ function App() {
           </div>
 
           <div className="option-section">
-            <h4>Hamur Seç</h4>
+            <h4>Hamur Seç <span style={{ color: 'red' }}>*</span></h4>
             <select>
               <option value="">Hamur Kalınlığı</option>
               <option value="İnce">İnce</option>
@@ -57,8 +68,8 @@ function App() {
           </div>
         </div>
 
-        <h3>Ek Malzemeler</h3>
-        <p>En Fazla 10 malzeme seçebilirsiniz.</p>
+        <h3 className="ekmalzeme">Ek Malzemeler</h3>
+        <p>En Fazla 10 malzeme seçebilirsiniz. 5₺</p>
         <div className="extras-list">
           {extraOptions.map((option, index) => (
             <label key={index}>
@@ -73,20 +84,25 @@ function App() {
           ))}
         </div>
 
-        <h3>Sipariş Notu</h3>
+        <h3 className="siparisnotu">Sipariş Notu</h3>
         <textarea placeholder="Siparişine eklemek istediğin bir not var mı?"></textarea>
       </div>
 
+      <div className="separator"></div>
+
       <div className="order-summary">
-        <p>Seçimler: {extras.length * 5}₺</p>
-        <p>Toplam: {totalPrice.toFixed(2)}₺</p>
+        <h4>Sipariş Toplamı</h4>
+        <div className="summary-details">
+          <p>Seçimler <span>{(extras.length * 5).toFixed(2)}₺</span></p>
+          <p className="total">Toplam <span>{totalPrice.toFixed(2)}₺</span></p>
+        </div>
       </div>
 
       <div className="order-controls">
-        <button onClick={() => setCount(count > 1 ? count - 1 : 1)}>-</button>
+        <button className="control-button" onClick={() => setCount(count > 1 ? count - 1 : 1)}>-</button>
         <input type="text" value={count} readOnly />
-        <button onClick={() => setCount(count + 1)}>+</button>
-        <button className="order-button">Sipariş Ver</button>
+        <button className="control-button" onClick={() => setCount(count + 1)}>+</button>
+        <button className="order-button">SİPARİŞ VER</button>
       </div>
     </div>
   );
